@@ -10,113 +10,210 @@ $violet: #3f0b9f;
 $orange: #fac906;
 
 body {
-  font-family: "Noto Sans KR", sans-serif;
+    font-family: "Noto Sans KR", sans-serif;
 }
 
 .inner {
-  width: 1440px;
-  margin: auto;
+    width: 1440px;
+    margin: auto;
 }
 
 .header-top {
-  margin-top: 15px;
-  .inner {
-    .top-list {
-      display: flex;
-      justify-content: flex-end;
-      > li {
-        padding: 12px 10px 15px;
-        position: relative;
-        font-size: 14px;
-        color: $gray2;
-        &:nth-of-type(5) {
-          margin: 0 10px;
+    margin-top: 15px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    .inner {
+        .top-list {
+            display: flex;
+            justify-content: flex-end;
+            > li {
+                padding: 12px 10px 15px;
+                position: relative;
+                font-size: 14px;
+                color: $gray2;
+                .arrow-icon {
+                    margin-left: 10px;
+                }
+                &:nth-of-type(5) {
+                    margin: 0 10px;
+                }
+                &::after {
+                    content: "";
+                    display: block;
+                    background-color: $black;
+                    top: 0;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 95%;
+                    height: 3px;
+                    position: absolute;
+                }
+            }
+            .museum {
+                &:hover {
+                    .museum-list {
+                        display: block;
+                        li:hover {
+                            color: $orange;
+                            text-decoration: underline;
+                        }
+                    }
+                }
+                .museum-list {
+                    background-color: black;
+                    font-size: 14px;
+                    color: #bbb;
+                    text-align: center;
+                    padding: 10px 0;
+                    box-sizing: border-box;
+                    margin-top: 20px;
+                    display: none;
+                    li {
+                        padding: 10px 0;
+                    }
+                }
+            }
+            .language {
+                &:hover {
+                    .language-list {
+                        display: block;
+                        li:hover {
+                            color: $orange;
+                            text-decoration: underline;
+                        }
+                    }
+                }
+                .language-list {
+                    background-color: black;
+                    font-size: 14px;
+                    color: #bbb;
+                    text-align: center;
+                    padding: 10px 0;
+                    box-sizing: border-box;
+                    margin-top: 20px;
+                    display: none;
+                    li {
+                        padding: 10px 0;
+                    }
+                }
+            }
+            .sns-list {
+                display: flex;
+                margin: 5px 17px;
+                > li {
+                    padding-bottom: 0;
+                    margin-left: 17px;
+                    &:first-child {
+                        margin-left: 0;
+                    }
+                }
+            }
         }
-        &::after {
-          content: "";
-          display: block;
-          background-color: $black;
-          top: 0;
-          left: 50%;
-          transform: translateX(-50%);
-          width: 95%;
-          height: 3px;
-          position: absolute;
-        }
-      }
-      .sns-list {
-        display: flex;
-        margin: 5px 17px;
-        > li {
-          padding-bottom: 0;
-          margin-left: 17px;
-          &:first-child {
-            margin-left: 0;
-          }
-        }
-      }
     }
-  }
 }
 
 .header-bottom {
-  .inner {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-    .gnb {
-      display: flex;
-      justify-content: space-between;
-      width: 720px;
-      padding-top: 27px;
-      .dep1 {
-        font-size: 22px;
-        height: 200px;
-        &:hover .dep2 {
-          display: flex;
+    padding-top: 70px;
+    .inner {
+        position: relative;
+        padding: 20px;
+        .logo {
+            float: left;
         }
-      }
-      .dep2 {
-        font-size: 16px;
-        padding: 14px 0;
-        justify-content: center;
-        display: none;
-        position: absolute;
-        top: 100px;
-        left: 0;
-        width: 100%;
-        height: 30px;
-        background-color: $black;
-        color: $white;
-        > li {
-          margin-right: 20px;
-          position: relative;
-          &:hover .dep3 {
+        .gnb {
+            float: left;
+            margin-left: 92px;
             display: flex;
-          }
+            justify-content: space-between;
+            width: 720px;
+            padding-top: 27px;
+            .dep1 {
+                font-size: 22px;
+                height: 200px;
+                &:hover {
+                    color: $violet;
+                    .dep2 {
+                        display: flex;
+                    }
+                }
+            }
+            .dep2 {
+                font-size: 15px;
+                padding: 14px 0;
+                justify-content: center;
+                display: none;
+                position: absolute;
+                top: 100px;
+                left: 0;
+                width: 100%;
+                height: 25px;
+                line-height: 25px;
+                background-color: $black;
+                color: $white;
+                > li {
+                    margin-right: 20px;
+                    position: relative;
+                    padding-bottom: 20px;
+                    box-sizing: border-box;
+                    height: 25px;
+                    > a {
+                        display: block;
+                        height: 35px;
+                        &:hover {
+                            color: $orange;
+                            transition: 0.3s;
+                        }
+                    }
+                    &:hover {
+                        .dep3 {
+                            display: flex;
+                        }
+                        &::after {
+                            content: "";
+                            position: absolute;
+                            bottom: -14px;
+                            width: 20px;
+                            height: 4px;
+                            left: 50%;
+                            transform: translateX(-50%);
+                            background-color: $orange;
+                        }
+                    }
+                }
+                .dep3 {
+                    text-align: center;
+                    background-color: $gray3;
+                    flex-direction: column;
+                    display: none;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    min-width: 100%;
+                    box-sizing: border-box;
+                    padding: 20px;
+                    white-space: nowrap;
+                    position: absolute;
+                    > li {
+                        padding: 4px;
+                        &:hover {
+                            color: $orange;
+                            text-decoration: underline;
+                            transition: 0.3s;
+                        }
+                    }
+                }
+            }
         }
-        .dep3 {
-          position: absolute;
-          text-align: center;
-          top: 30px;
-          background-color: $gray3;
-          flex-direction: column;
-          display: none;
-          left: 50%;
-          transform: translateX(-50%);
-          min-width: 100%;
-          box-sizing: border-box;
-          padding: 20px;
-          white-space: nowrap;
-          > li {
-            padding: 14px;
-          }
+        .util {
+            display: flex;
+            float: right;
+            margin-top: 25px;
+            line-height: 25px;
+            a {
+                margin-left: 14px;
+            }
         }
-      }
     }
-    .util {
-      display: flex;
-    }
-  }
 }
